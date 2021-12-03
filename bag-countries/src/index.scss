@@ -1,0 +1,115 @@
+ @import 'colors'; 
+body {
+  margin: 0;
+  color:$darktext;
+  font-size: 18px;
+
+}
+/* mixins */ 
+@mixin grid($gtc:repeat(2, 1fr),$gap:30px){
+  grid-template-columns:$gtc;
+  display: grid;
+  gap: $gap;
+}
+@mixin box() {
+  border: 1px solid $light;
+  padding: 4px 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+@mixin flex($wrap:nowrap,$justify: space-between, $direction:'row'){
+  display: flex;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+@mixin span($br:0, $pd:0){
+  border-radius: $br;
+  padding :$pd;
+}
+/*style for specific elements */
+.text-light {  color: $light;}
+.text-dark{color: $dark;}
+.margin-32{margin: 32px;}
+.padding-32{  padding: 32px;}
+.margin-top-120{  margin-top: 128px;}
+.title-dark{color: $dark;font-size: 22px; font-weight:750;}
+
+.app {
+  @include grid($gtc: 200px 1fr,$gap:0);
+}
+.sidebar{
+  border-right: 2px solid $light;
+  color: $darktext;
+ 
+}
+
+/*  span country*/
+
+.neighbor{
+  @include box;
+  margin-left: 8px;  
+}
+
+
+.toggle{margin-left:20px;}
+.flex{
+  @include flex;
+ div{
+     margin-left: 20px;
+  span{
+    margin: 0 20px;
+  }
+ }
+}
+.flex-wrap{
+    @include flex($wrap:wrap);
+}
+.around{
+  @include flex($justify: space-around);
+}
+.vertical {
+  @include flex($direction:row);
+}
+
+.circle{
+  @include span($br: 50%, $pd:4px);
+  background:$light;
+
+}
+
+/* specific country styles*/
+.flex-col{
+@include flex($direction:column, $justify:space-evenly)
+}
+
+.grid-2{
+  @include grid;
+}
+.grid-2.desktop{margin-top: 120px}
+.container{
+@include flex($wrap: wrap,$justify: flex-start);
+}
+
+.mobile-topnav{
+  @include flex;
+  @include box;
+  background: $white;
+  display: none;
+  padding: 4px 32px;
+}
+/** Responsiveness */
+@media only screen and (max-width: 600px) and (max-width: 768px) {
+	.grid-2{
+    @include grid($gtc: 1fr);
+  }
+  .grid-2, .flex-col{width: 150%;}
+  .sidebar,.desktop {display: none;}
+  .mobile-topnav{display:block;}
+
+  .flex.mobile{ @include box;}
+  .container,.neighbor{
+    margin-top:20px;
+    min-width: 150px;
+  }
+  .title-dark {font-size:14px;}
+}
