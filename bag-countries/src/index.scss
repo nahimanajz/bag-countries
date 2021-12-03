@@ -1,4 +1,4 @@
- @import 'colors'; 
+@import 'colors'; 
 body {
   margin: 0;
   color:$darktext;
@@ -27,7 +27,7 @@ body {
   padding :$pd;
 }
 @mixin shadow(){
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25)
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
 /*style for specific elements */
 .text-light {  color: $light;}
@@ -38,6 +38,7 @@ body {
 .title-dark{color: $dark;font-size: 24px; font-weight:750;}
 .w-150{width:150px;}
 .subtitle{color:$dark; font-size:18px; font-weight:700;}
+.icon{ height:32px; width:32px; border-radius: 50%; border:2px solid $dark;};
 
 .app {
   @include grid($gtc: 200px 1fr,$gap:0);
@@ -48,15 +49,11 @@ body {
   color: $darktext;
  
 }
-
 /*  span country*/
-
 .neighbor{
   @include box; 
   margin-left:8px ;
 }
-
-
 .toggle{margin-left:20px;}
 .flex{
   @include flex;
@@ -72,8 +69,16 @@ body {
 }
 .around{
   @include flex($justify: space-around);
-  text-align: center;
 }
+.start{
+  @include flex($justify: flex-start);
+  @include shadow();
+  width: 150px;
+  margin: 20px 0;
+  padding: 8px 16px;
+
+}
+
 .vertical {
   @include flex($direction:row);
 }
@@ -95,27 +100,25 @@ body {
 .container{
 @include flex($wrap: nowrap,$justify: flex-start);
 }
-.mobile-topnav{
-  @include flex;
-  @include box;
-  background: $white;
-}
+.mobile-nav{
+    display:flex; 
+    justify-content: space-between;
+    box-shadow: 0 10px 10px -10px #333;
+    padding: 16px 8px 32px;        
+    flex-direction:row;
+    flex-wrap: nowrap;
+  }
+  .mobile{display:none;}
+  
 /** Responsiveness */
 @media only screen and (max-width: 375px) and (max-width: 768px) {
 	.grid-2{
     @include grid($gtc: 1fr);
   }
-
   .grid-2, .flex-col{width: 100%;}
   .sidebar,.desktop {display: none;}
+  .mobile{display:block;}
+  .desktop-back{display:none;}
   .flex.mobile{ @include box;}
   
-  .margin-32{margin:0;}
-  .mobile-flex{
-    display: inline-flex;
-    
-      background: black;
-     min-width: 300px;
-     width: auto;
-    }
 }

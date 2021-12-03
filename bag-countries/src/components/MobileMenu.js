@@ -4,10 +4,11 @@ const { Moon } = require("../assets/Moon");
 const { Sun } = require("../assets/Sun");
 
 export function MobileMenu({toggleMode, darkMode}){
+//TODO: fix responsiveness 
     return(<>
-            <div class="mobile-nav">
+            <div class="mobile-nav mobile" style={{width: `${360}px`}}>
                 <div>
-                <span className="subtitle">Where in the world?</span>
+                     <span className="subtitle">Where in the world?</span>
                 </div>
                 <div>                                   
                 <button onClick={toggleMode} className="margin-right-32"> {!darkMode ?<Sun/>:<Moon /> }</button>
