@@ -22,11 +22,7 @@ function App() {
         </sidebar>
         <main className="margin-32">
         
-          <navbar className="flex-wrap">
-            <div className="flex mobile">              
-                <ArrowLeft />
-               <span className="toggle">Back</span>             
-            </div>
+          <navbar className="flex-wrap">            
             <div className="flex-end desktop">
               <div className="flex">
                   <span> Dark mode</span>                  
@@ -39,6 +35,19 @@ function App() {
             
           </navbar>
            <div className="grid-2 margin-top-120">
+             <div class="mobile-nav">
+               <div>
+                 <span className="subtitle">Where in the world?</span>
+               </div>
+               <div>                                   
+                <button onClick={toggleMode} className="margin-right-32"> {!darkMode ?<Sun/>:<Moon /> }</button>
+                {!darkMode? 'Light Mode': 'Dark Mode'}
+               </div>
+             </div>
+             <div className="start mobile">              
+                <ArrowLeft />
+               <span>Back</span>             
+            </div>
              <div>
                   <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png" alt="Country flag"></img>
              </div>
