@@ -11,6 +11,12 @@ body {
   display: grid;
   gap: $gap;
 }
+@mixin bgGrey() {
+  background-color: $grey;
+}
+@mixin curve-8($px){
+  border-radius: $px;
+}
 @mixin box() {
   border: 1px solid $light;
   padding: 2px 4px;
@@ -38,6 +44,9 @@ body {
 .title-dark{color: $dark;font-size: 24px; font-weight:750;}
 .w-150{width:150px;}
 .subtitle{color:$dark; font-size:18px; font-weight:700;}
+.subtitle2{color:$dark; font-size:16px; font-weight:800;}
+.p-h{padding: 0 16px;}
+
 .icon{ height:32px; width:32px; border-radius: 50%; border:2px solid $dark;};
 
 .app {
@@ -78,6 +87,9 @@ body {
   padding: 8px 16px;
 
 }
+.flex-end{
+  @include flex($justify: flex-end);
+}
 
 .vertical {
   @include flex($direction:row);
@@ -109,9 +121,43 @@ body {
     flex-wrap: nowrap;
   }
   .mobile{display:none;}
-  
+  /* STYLLING LIST OF COUNTRIES*/
+  select, input { 
+    padding:8px 4px;
+    @include curve-8($px:8px);
+    @include bgGrey();
+  }
+  input{width: 450px;}
+  select{width:200px;
+    option {
+      @include bgGrey();
+    }
+  }
+.grid-col-2{
+    @include grid($gtc:minmax(20px, auto) 1fr);
+    @include bgGrey();
+    @include curve-8($px:8px);
+    
+}
+.grid-col-2 > span{ padding: 8px;}
+.grid-col-3{
+  @include grid($gtc:repeat(3, 1fr));
+  gap: 30px;
+}
+.grid-row-4{
+  @include grid($gtc:1fr);
+  grid-template-rows: repeat(4, 1fr);
+  @include bgGrey();
+  @include curve-8($px:8px);
+  width: 250px;
+  height: 460px;
+}
+.flag{
+  height: 150px;
+   @include curve-8($px:8px);}
+
 /** Responsiveness */
-@media only screen and (max-width: 375px) and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
 	.grid-2{
     @include grid($gtc: 1fr);
   }
@@ -120,5 +166,6 @@ body {
   .mobile{display:block;}
   .desktop-back{display:none;}
   .flex.mobile{ @include box;}
+  
   
 }
