@@ -5,7 +5,7 @@ body {
   font-size: 18px;
 
 }
-/* mixins */ 
+// mixins 
 @mixin grid($gtc:repeat(2, 1fr),$gap:30px){
   grid-template-columns:$gtc;
   display: grid;
@@ -13,7 +13,7 @@ body {
 }
 @mixin box() {
   border: 1px solid $light;
-  padding: 4px 16px;
+  padding: 2px 4px;
   box-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 @mixin flex($wrap:nowrap,$justify: space-between, $direction:'row'){
@@ -31,11 +31,11 @@ body {
 .text-dark{color: $dark;}
 .margin-32{margin: 32px;}
 .padding-32{  padding: 32px;}
-.margin-top-120{  margin-top: 128px;}
-.title-dark{color: $dark;font-size: 22px; font-weight:750;}
+.title-dark{color: $dark;font-size: 24px; font-weight:750;}
 
 .app {
   @include grid($gtc: 200px 1fr,$gap:0);
+  height: 100%;
 }
 .sidebar{
   border-right: 2px solid $light;
@@ -46,8 +46,8 @@ body {
 /*  span country*/
 
 .neighbor{
-  @include box;
-  margin-left: 8px;  
+  @include box; 
+  margin-left:8px ;
 }
 
 
@@ -85,31 +85,30 @@ body {
 .grid-2{
   @include grid;
 }
-.grid-2.desktop{margin-top: 120px}
 .container{
-@include flex($wrap: wrap,$justify: flex-start);
+@include flex($wrap: nowrap,$justify: flex-start);
 }
-
 .mobile-topnav{
   @include flex;
   @include box;
   background: $white;
-  display: none;
-  padding: 4px 32px;
 }
 /** Responsiveness */
-@media only screen and (max-width: 600px) and (max-width: 768px) {
+@media only screen and (max-width: 375px) and (max-width: 768px) {
 	.grid-2{
     @include grid($gtc: 1fr);
   }
-  .grid-2, .flex-col{width: 150%;}
-  .sidebar,.desktop {display: none;}
-  .mobile-topnav{display:block;}
 
+  .grid-2, .flex-col{width: 100%;}
+  .sidebar,.desktop {display: none;}
   .flex.mobile{ @include box;}
-  .container,.neighbor{
-    margin-top:20px;
-    min-width: 150px;
-  }
-  .title-dark {font-size:14px;}
+  
+  .margin-32{margin:0;}
+  .mobile-flex{
+    display: inline-flex;
+    
+      background: black;
+     min-width: 300px;
+     width: auto;
+    }
 }

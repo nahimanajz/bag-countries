@@ -20,15 +20,8 @@ function App() {
              <li className="menu-item"> TO VISITE</li>
            </ul>
         </sidebar>
-        <main>
-          <div className="flex" style={{backgroundColor: 'red', minWidth: 375, margin:0,padding:0}}>
-              <div className="title-dark">Where in the world?</div>
-              <div className="flex">                
-                <span> Dark mode</span>                  
-                    <button onClick={toggleMode}> {darkMode ?<Sun/>:<Moon /> }</button>
-              </div>
-
-          </div>
+        <main className="margin-32">
+        
           <navbar className="flex-wrap">
             <div className="flex mobile">              
                 <ArrowLeft />
