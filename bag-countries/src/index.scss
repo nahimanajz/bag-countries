@@ -27,7 +27,7 @@ body {
   padding :$pd;
 }
 @mixin shadow(){
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25)
 }
 /*style for specific elements */
 .text-light {  color: $light;}
@@ -48,11 +48,15 @@ body {
   color: $darktext;
  
 }
+
 /*  span country*/
+
 .neighbor{
   @include box; 
   margin-left:8px ;
 }
+
+
 .toggle{margin-left:20px;}
 .flex{
   @include flex;
@@ -68,13 +72,7 @@ body {
 }
 .around{
   @include flex($justify: space-around);
-}
-.start{
-  @include flex($justify: flex-start);
-  @include shadow();
-  width: 150px;
-  padding: 16px 32px;
-
+  text-align: center;
 }
 .vertical {
   @include flex($direction:row);
@@ -97,21 +95,27 @@ body {
 .container{
 @include flex($wrap: nowrap,$justify: flex-start);
 }
-.mobile-nav{
-    display:flex; 
-    justify-content: space-between;
-    box-shadow: 0 10px 10px -10px #333;
-    padding: 16px 8px 32px;        
-    flex-direction:row;
-  }
-
+.mobile-topnav{
+  @include flex;
+  @include box;
+  background: $white;
+}
 /** Responsiveness */
 @media only screen and (max-width: 375px) and (max-width: 768px) {
 	.grid-2{
     @include grid($gtc: 1fr);
   }
+
   .grid-2, .flex-col{width: 100%;}
   .sidebar,.desktop {display: none;}
   .flex.mobile{ @include box;}
   
+  .margin-32{margin:0;}
+  .mobile-flex{
+    display: inline-flex;
+    
+      background: black;
+     min-width: 300px;
+     width: auto;
+    }
 }
