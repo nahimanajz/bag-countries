@@ -7,7 +7,8 @@ export default function Home() {
     const[showLogin, setShowLogin] = useState(false);
     const switchScreens = ()=> setShowLogin(!showLogin);
 
-    return(
+    return(<>
+    
         <div className="cover">
             <div className="model-header">
                 <div className={showLogin?'inactive':'active'} onClick={switchScreens}>Signup</div>
@@ -16,5 +17,7 @@ export default function Home() {
             {showLogin? <Signin />:<Signup /> }
              
         </div>
+        
+        </>
     )
 }
