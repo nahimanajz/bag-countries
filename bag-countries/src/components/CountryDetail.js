@@ -6,7 +6,7 @@ export function CountryDetail({children}){
              {children} 
         </div>
         
-        <div class="info">
+        <div className="info">
             <div className="grid-2 margin-top-120">
                 <div>            
                     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png" alt="Country flag"></img>

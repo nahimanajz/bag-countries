@@ -5,6 +5,8 @@ import { DesktopNav } from './components/DesktopNav'
 import SideMenus from './components/SideMenus'
 import { Routes, Route, Link,  Outlet} from "react-router-dom";
 import { MyList } from './screens/MyList'
+import { Signup } from './screens/Signup'
+import { Signin } from './screens/Signin'
  
 
 function App() {  
@@ -21,6 +23,8 @@ function App() {
                 <MobileMenu toggleMode={toggleMode} darkMode={darkMode}/> 
             </CountryDetail> */}
             <Routes>
+            <Route path="/" element={<Signup />} />
+            <Route path="/" element={<Signin />} />
             <Route path="/my-list" element={<MyList />} />
             <Route path="/my-list" element={<MyList />}>
               

@@ -1,8 +1,10 @@
 @import 'colors'; 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 body {
   margin: 0;
   color:$darktext;
   font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
 
 }
 // mixins 
@@ -51,7 +53,7 @@ body {
 
 .app {
   @include grid($gtc: 200px 1fr,$gap:0);
-  height: 100%;
+  height: 100vh;
 }
 .sidebar{
   border-right: 2px solid $light;
@@ -139,7 +141,7 @@ body {
     @include curve-8($px:8px);
     
 }
-.grid-col-2 > span{ padding: 8px;}
+.grid-col-2 > span{ padding-right: -64px; padding-left: 8px;}
 .grid-col-3{
   @include grid($gtc:repeat(3, 1fr));
   gap: 30px;
@@ -153,9 +155,40 @@ body {
   height: 460px;
 }
 .flag{
-  height: 150px;
-   @include curve-8($px:8px);}
+  overflow: hidden;
+  width: 100%;
+   @include curve-8($px:12px);}
 
+  /* registration form*/
+  .cover{
+    z-index: 1; // Put modal on top
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: $bg-dark;
+    display: grid;
+    place-items: start;
+    
+  }
+  .modal{
+    margin-top: 32px;
+    background: $white;
+    @include flex($justify: space-around, $direction: column, $wrap: wrap);
+    @include curve-8($px:8px);
+    border:1px solid $green;
+    min-height: 400px;
+    max-width: 600px;
+    padding: 10px;
+    justify-self: center;
+
+  }
+  .modal > .grid-col-2 {
+     background-color: $green;
+     align-self: center;
+  
+   }
 /** Responsiveness */
 @media only screen and (max-width: 600px) {
 	.grid-2{
@@ -166,6 +199,7 @@ body {
   .mobile{display:block;}
   .desktop-back{display:none;}
   .flex.mobile{ @include box;}
+  .grid-col-3{@include grid($gtc:1fr);}
   
   
 }

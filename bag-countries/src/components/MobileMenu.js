@@ -6,7 +6,7 @@ const { Sun } = require("../assets/Sun");
 export function MobileMenu({toggleMode, darkMode}){
 //TODO: fix responsiveness 
     return(<>
-            <div class="mobile-nav mobile" style={{width: `${360}px`}}>
+            <div className="mobile-nav mobile" style={{width: `${360}px`}}>
                 <div>
                      <span className="subtitle">Where in the world?</span>
                 </div>
