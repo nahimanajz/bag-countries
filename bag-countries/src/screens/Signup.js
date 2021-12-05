@@ -5,15 +5,13 @@ import {Lock} from'../assets/Lock'
 import {Mail} from'../assets/Mail'
 import {Location} from'../assets/Location'
 export function Signup({children}){
-    
     return(
-        <div className="cover">
             <form action="/" method="POST" className="modal">
 		    <div className="grid-col-2">
                     <span><UserIcon /></span>
                       <div>
                             <input type="text" placeholder="Full Names" name="fullNames" />
-                            <small>LmORARfEVT1iyjwN*</small>
+                            {/*1===1&&<small>LmORARfEVT1iyjwN*</small> */}
                        </div>
 
                     </div>
@@ -21,7 +19,15 @@ export function Signup({children}){
                         <span><Mail /></span>
                         <div>
                             <input type="email" placeholder="Email" name="email" required className="input"/>
-                            <small>LmORARfEVT1iyjwN*</small>
+                            {/*1===1&&<small>LmORARfEVT1iyjwN*</small> */}
+                         </div>
+
+                     </div>
+                     <div className="grid-col-2">                       
+                        <span><Lock /></span>
+                        <div>
+                            <input type="password" placeholder="Email" name="email" required/>
+                            {/*1===1&&<small>LmORARfEVT1iyjwN*</small> */}
                          </div>
 
                      </div>
@@ -29,21 +35,21 @@ export function Signup({children}){
                         <span><Phone /></span>
                         <div>
                              <input type="phone" placeholder="Phone" name="phone"/>
-                             <small>LmORARfEVT1iyjwN*</small>
+                             {/*1===1&&<small>LmORARfEVT1iyjwN*</small> */}
                         </div>
                      </div>
                      <div className="grid-col-2">
                         <span><DOBIcon /></span>
                         <div>
                              <input type="date" placeholder="Date Of Birth" name="dob"/>
-                             <small>LmORARfEVT1iyjwN*</small>
+                             {/*1===1&&<small>LmORARfEVT1iyjwN*</small> */}
                         </div>
                      </div>
                      <div className="grid-col-2">
                         <span><Location /></span>
                         <div>
                             <input type="text" placeholder="Country" name="country"/>
-                             <small>LmORARfEVT1iyjwN*</small>
+                             {/*1===1&&<small>LmORARfEVT1iyjwN*</small> */}
                         </div>
                      </div>
                      <div> 
@@ -51,7 +57,5 @@ export function Signup({children}){
                      </div>
                    
                 </form>
-        </div>
-       
     )
 }

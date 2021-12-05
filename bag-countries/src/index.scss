@@ -37,6 +37,12 @@ body {
 @mixin shadow(){
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
+@mixin modal($mh:400px,$mw: 700px, $pd: 32px 16px){
+  min-height: $mh;
+  max-width: $mw;
+  padding:$pd;
+  justify-self: center;
+}
 /*style for specific elements */
 .text-light {  color: $light;}
 .text-dark{color: $dark;}
@@ -173,22 +179,28 @@ body {
     
   }
   .modal{
-    margin-top: 32px;
     background: $white;
-    @include flex($justify: space-around, $direction: column, $wrap: wrap);
+    @include flex($justify: space-evenly, $direction: column, $wrap: wrap);
     @include curve-8($px:8px);
     border:1px solid $green;
-    min-height: 400px;
-    max-width: 600px;
-    padding: 10px;
-    justify-self: center;
+    @include modal($mh:700px);
+    overflow-y: scroll;
 
   }
-  .modal > .grid-col-2 {
-     background-color: $green;
-     align-self: center;
-  
-   }
+  .modal > .grid-col-2 {align-self: center; }
+  //  .modal.h-300{height:100px;}
+  .model-header{
+    @include modal($mh: 20px, $mw: 700px);
+    height: 20px;
+    width: 560px;
+    background:$white;
+    border-bottom: 1px solid $light;
+    @include flex($justify: space-between, $direction: row);
+  }
+  .active{
+    background: $red;
+  }
+
 /** Responsiveness */
 @media only screen and (max-width: 600px) {
 	.grid-2{
@@ -200,6 +212,4 @@ body {
   .desktop-back{display:none;}
   .flex.mobile{ @include box;}
   .grid-col-3{@include grid($gtc:1fr);}
-  
-  
 }
