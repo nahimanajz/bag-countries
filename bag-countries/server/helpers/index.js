@@ -1,13 +1,13 @@
 import Joi from "joi";
 class ValidateHelper {
     userInfo(data){
-        const schema =Joi.object({            
-            email: Joi.string().email().required(),
+        const schema = Joi.object({            
+            email: Joi.unique().required(),
             phone: Joi.number().required(),
-            name: Joi.string().required(),
+            name: Joi.required(),
             dob: Joi.date().required(),
-            country: Joi.string().required(),
-            password: Joi.required().string(),        
+            country: Joi.required(),
+            password: Joi.required(),        
            
         })
         return schema.validate(data);

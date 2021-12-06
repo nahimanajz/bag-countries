@@ -9,9 +9,9 @@ env.config();
 const DB_URL = process.env.ENV !== 'production' ?process.env.MONGODB_DEV_URL:process.env.MONGODB_URL
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-}).catch(error => console.log(error.reason));
+    useUnifiedTopology: true
+}).then(res=>console.log('db connected'))
+.catch(error => console.log(error));
 
 const app = express();
 const port = process.env.PORT || 9000;
