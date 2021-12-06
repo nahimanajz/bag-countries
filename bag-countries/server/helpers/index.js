@@ -1,18 +1,19 @@
-import joi from "joi";
+import Joi from "joi";
 class ValidateHelper {
     userInfo(data){
-        const User = {            
-            email: joi.string().email().required(),
-            phone: joi.number().required(),
-            name: joi.string().required(),
-            dob: joi.date.required(),
-            country: joi.string().required(),
-            password: joi.string(),        
+        const schema =Joi.object({            
+            email: Joi.string().email().required(),
+            phone: Joi.number().required(),
+            name: Joi.string().required(),
+            dob: Joi.date().required(),
+            country: Joi.string().required(),
+            password: Joi.required().string(),        
            
-        }
-        return joi.validate(data, User);
+        })
+        return schema.validate(data);
     }
     
 
 }
-export default new ValidateHelper();
+const vh = new ValidateHelper();
+export default vh ;
