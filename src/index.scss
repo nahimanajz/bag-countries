@@ -1,0 +1,220 @@
+@import 'colors'; 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+body {
+  margin: 0;
+  color:$darktext;
+  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+
+}
+// mixins 
+@mixin grid($gtc:repeat(2, 1fr),$gap:30px){
+  grid-template-columns:$gtc;
+  display: grid;
+  gap: $gap;
+}
+@mixin bgGrey() {
+  background-color: $grey;
+}
+@mixin curve-8($px){
+  border-radius: $px;
+}
+@mixin box() {
+  border: 1px solid $light;
+  padding: 2px 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+@mixin flex($wrap:nowrap,$justify: space-between, $direction:'row'){
+  display: flex;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+@mixin span($br:0, $pd:0){
+  border-radius: $br;
+  padding :$pd;
+}
+@mixin shadow(){
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+@mixin modal($mh:400px,$mw: 700px, $pd: 32px 16px){
+  min-height: $mh;
+  max-width: $mw;
+  padding:$pd;
+  justify-self: center;
+}
+/*style for specific elements */
+.text-light {  color: $light;}
+.text-dark{color: $dark;}
+.margin-32{margin: 32px;}
+.padding-32{  padding: 32px;}
+.m-top-32{margin-top: 32px;}
+.margin-right-32{margin-right: 8px;}
+.title-dark{color: $dark;font-size: 24px; font-weight:750;}
+.w-150{width:150px;}
+.subtitle{color:$dark; font-size:18px; font-weight:700;}
+.subtitle2{color:$dark; font-size:16px; font-weight:800;}
+.p-h{padding: 0 16px;}
+.bottom-margin{margin-bottom: 32px;}
+
+.icon{ height:32px; width:32px; border-radius: 50%; border:2px solid $dark;};
+
+.app {
+  @include grid($gtc: 200px 1fr,$gap:0);
+  height: 100vh;
+}
+.sidebar{
+  border-right: 2px solid $light;
+  color: $darktext;
+ 
+}
+/*  span country*/
+.neighbor{
+  @include box; 
+  margin-left:8px ;
+}
+.toggle{margin-left:20px;}
+.flex{
+  @include flex;
+ div{
+     margin-left: 20px;
+  span{
+    margin: 0 20px;
+  }
+ }
+}
+.flex-wrap{
+    @include flex($wrap:wrap);
+}
+.around{
+  @include flex($justify: space-around);
+}
+.start{
+  @include flex($justify: flex-start);
+  @include shadow();
+  width: 150px;
+  margin: 20px 0;
+  padding: 8px 16px;
+
+}
+.flex-end{
+  @include flex($justify: flex-end);
+}
+
+.horizontal {
+  @include flex($direction:flex-end);
+}
+
+.circle{
+  @include span($br: 50%, $pd:4px);
+  background:$light;
+
+}
+
+/* specific country styles*/
+.flex-col{
+@include flex($direction:column, $justify:space-evenly)
+}
+
+.grid-2{
+  @include grid;
+}
+.container{
+@include flex($wrap: nowrap,$justify: flex-start);
+}
+.mobile-nav{
+    display:flex; 
+    justify-content: space-between;
+    box-shadow: 0 10px 10px -10px #333;
+    padding: 16px 8px 32px;        
+    flex-direction:row;
+    flex-wrap: nowrap;
+  }
+  .mobile{display:none;}
+  /* STYLLING LIST OF COUNTRIES*/
+  select, input { 
+    padding:8px 4px;
+    @include curve-8($px:8px);
+    @include bgGrey();
+  }
+  input{width: 450px;}
+  select{width:200px;
+    option {
+      @include bgGrey();
+    }
+  }
+.grid-col-2{
+    @include grid($gtc:minmax(20px, auto) 1fr);
+    @include bgGrey();
+    @include curve-8($px:8px);
+    
+}
+.grid-col-2 > span{ padding-right: -64px; padding-left: 8px;}
+.grid-col-3{
+  @include grid($gtc:repeat(4, 1fr));
+  gap: 30px;
+}
+.grid-row-4{
+  @include grid($gtc:1fr, $gap:10px);
+  grid-template-rows: repeat(4, 1fr);
+  @include bgGrey();
+  @include curve-8($px:8px);
+  // width: 250px;
+  max-height: 500px;
+  
+}
+.flag{
+  background-size: 100%;
+  height: 220px;
+  min-height: 220px;
+  background-repeat: no-repeat;
+  @include curve-8($px:12px);}
+
+  /* registration form*/
+  .cover{
+    z-index: 1; // Put modal on top
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: $bg-dark;
+    display: grid;
+    place-items: start;
+    
+  }
+  .modal{
+    background: $white;
+    @include flex($justify: space-evenly, $direction: column, $wrap: wrap);
+    @include curve-8($px:8px);
+    border:1px solid $green;
+    @include modal($mh:700px);
+    overflow-y: scroll;
+
+  }
+  .modal > .grid-col-2 {align-self: center; }
+  //  .modal.h-300{height:100px;}
+  .model-header{
+    @include modal($mh: 20px, $mw: 700px);
+    height: 20px;
+    width: 560px;
+    background:$white;
+    border-bottom: 1px solid $light;
+    @include flex($justify: space-between, $direction: row);
+  }
+  .active{
+    background: $red;
+  }
+
+/** Responsiveness */
+@media only screen and (max-width: 600px) {
+	.grid-2{
+    @include grid($gtc: 1fr);
+  }
+  .grid-2, .flex-col{width: 100%;}
+  .sidebar,.desktop {display: none;}
+  .mobile{display:block;}
+  .desktop-back{display:none;}
+  .flex.mobile{ @include box;}
+  .grid-col-3{@include grid($gtc:1fr);}
+}
