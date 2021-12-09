@@ -10,7 +10,7 @@ const { Lock } = require("../assets/Lock");
 
 export default function Signin(props) {
 
-   const[state, setState] = useState({})
+   const[state, setState] = useState({email:'', password:''})
    const handleChange = useCallback(
     (e) => {
       setState({...state, [e.target.name]: e.target.value});
@@ -21,29 +21,25 @@ export default function Signin(props) {
 
 
    const navigate = useNavigate();
-    const handleSignin =  ()=>{        
-        console.log(JSON.stringify(state))
+    const handleSignin =  async()=>{              
 
-       //  const{ data}  = await axios.post(`${BACKEND_API_ROUTE}/signin`,{state})
-        // if(!data.message){   
-        //     navigate('/my-list',{loggedUser:data})
-        // }
-        // toast(data.message);
-       
+        const{ data}  = await axios.post(`${BACKEND_API_ROUTE}/signin`,{state})
+        if(!data.message){   
+            navigate('/my-list',{loggedUser:data})
+        }
+        toast(data.message);
         }
        
     return(
         <>
-            {/* <ToastContainer /> */}
-            <form onSubmit={handleSignin} className="modal">
+            <ToastContainer />
+            <form className="modal">
                 <div style={form}>
                 <div className="grid-col-2">
                     <span><Mail /></span>
                         <div>
-                            <input type="email" name="email" value={state && state.email}  onChange={handleChange} />
-                        
-                            {/* <input type="email" onChange={handleChange} placeholder="Email" name="email" required className="input"/> */}
-                            {/* {/*1===1&&<small>LmORARfEVT1iyjwN*</small> */} 
+                            <input type="email" name="email" onChange={handleChange} />
+
                          </div>
                 </div>
                 <div className="grid-col-2">                       
@@ -53,7 +49,7 @@ export default function Signin(props) {
                             value={state && state.password} placeholder="Password"
                              name="password" required 
                              onChange={handleChange}/>
-                        {/*1===1&&<small>LmORARfEVT1iyjwN*</small> */}
+                       
                     </div>
                 </div>
                 <div>

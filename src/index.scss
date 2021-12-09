@@ -137,7 +137,7 @@ body {
     @include curve-8($px:8px);
     @include bgGrey();
   }
-  input{width: 450px;}
+  input{max-width: 450px; width: 300px; border:0.1px solid $green;}
   select{width:200px;
     option {
       @include bgGrey();
@@ -170,7 +170,7 @@ body {
   background-repeat: no-repeat;
   @include curve-8($px:12px);}
 
-  /* registration form*/
+  /* registration form background */
   .cover{
     z-index: 1; // Put modal on top
     position: fixed;
@@ -180,30 +180,40 @@ body {
     right:0;
     background: $bg-dark;
     display: grid;
-    place-items: start;
+  
     
   }
+  /* user regstion form*/
   .modal{
     background: $white;
-    @include flex($justify: space-evenly, $direction: column, $wrap: wrap);
+    @include flex($justify: space-between, $direction: column, $wrap: wrap);
     @include curve-8($px:8px);
     border:1px solid $green;
-    @include modal($mh:700px);
-    overflow-y: scroll;
-
+    border-top-right-radius: 64px;
+    border-top-left-radius: 64px;
+    background: rgba(255,255,255,0.14);
+   
   }
+  ul.modal > li{
+    @include flex($direction:column, $justify: space-around);
+    color:$tomato;
+    margin: 10px;
+  }
+  ul.modal > li > input {height: 26px;}
+  input{height: 32px; border: 2px solid $green;} 
   .modal > .grid-col-2 {align-self: center; }
-  //  .modal.h-300{height:100px;}
+  .btn{background:$white; border: 1px solid $tomato; color:$tomato}
   .model-header{
-    @include modal($mh: 20px, $mw: 700px);
+    @include modal($mh: 20px);
     height: 20px;
-    width: 560px;
+    width: 100%;
     background:$white;
-    border-bottom: 1px solid $light;
     @include flex($justify: space-between, $direction: row);
   }
   .active{
-    background: $red;
+    color: $tomato;
+    font-weight: 500;
+    font-style: bold;
   }
 
 /** Responsiveness */
