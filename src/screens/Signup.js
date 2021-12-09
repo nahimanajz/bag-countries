@@ -65,7 +65,7 @@ export function Signup({children, showDashboard, userInfo}){
                         onClick={handleSignup} 
                         className="btn" 
                       value="Signup" style={{height: 48}} 
-                     disabled={state.length <6?false: true}/> 
+                     disabled={state.length <6?true: false}/> 
                   </li>    
                
                </ul>
