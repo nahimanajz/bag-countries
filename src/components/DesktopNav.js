@@ -7,7 +7,7 @@ const { ToggleLeft } = require("../assets/ToggleLeft");
 const { ToggleRight } = require("../assets/ToggleRight");
 
 
-export function DesktopNav({toggleMode, darkMode, title,changeScreenTitle}){
+export function DesktopNav({toggleMode, darkMode, title,changeScreenTitle, userInfo,...props}){
     const navigate = useNavigate()
     const goBack = useCallback(
       () => {   
@@ -15,6 +15,11 @@ export function DesktopNav({toggleMode, darkMode, title,changeScreenTitle}){
           changeScreenTitle('My List')
       },[changeScreenTitle, navigate]
     ) 
+    const handleSignout=()=>{
+      props.signout()
+      props.showDashboard(false)
+    }
+
     return(
         <div className="flex-wrap bottom-margin">
         <div className="flex desktop-back">              
@@ -30,8 +35,8 @@ export function DesktopNav({toggleMode, darkMode, title,changeScreenTitle}){
                <span> {darkMode?'Light Mode':'Dark Mode'}</span>                  
                 <button onClick={toggleMode} className="toggle"> {darkMode ?<ToggleRight />:<ToggleLeft /> }</button>
           <div className="circle"><Bell color={'#fff'} /> </div>
-          <div><b className="text-light">hey</b>, Jane</div>
-          <div>
+            <div><b className="text-light">hey</b>, {userInfo&&userInfo.name}</div>
+          <div onClick={handleSignout}>
               <img className="icon"  src="https://data.whicdn.com/images/334652102/original.jpg" alt="user"></img>
           </div>
 

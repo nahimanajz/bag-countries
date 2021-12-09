@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react'
 import axios from 'axios'
 import { BACKEND_API_ROUTE } from '../util'
 import { toast, ToastContainer } from 'react-toastify';
-export function Signup({children}){
+export function Signup({children, showDashboard, userInfo}){
    //TODO: SIGNUP THEN LOGIN IMMEDIATELY
    const[state, setState] = useState({name:'', email:'', password:'',phone:'',dob:'',country:''})
    const handleChange = useCallback(
@@ -14,14 +14,15 @@ export function Signup({children}){
    const handleSignup= async ()=>{
    const {name, email, password,phone,dob,country} = state;
    const{ data}  = await axios.post(`${BACKEND_API_ROUTE}/signup`,{name, email, password,phone,dob,country})
-   toast(JSON.stringify(state))
+  
 
     if(data.error){  //check if registration is ok
-       //toast('Please correct your data');
-       toast(JSON.stringify(data.error))
+       toast('Please correct your data');
 
     }else{
       toast('Well done!!')
+      userInfo(data.newUser);
+      showDashboard(true)
       
     }
     
@@ -64,7 +65,7 @@ export function Signup({children}){
                         onClick={handleSignup} 
                         className="btn" 
                       value="Signup" style={{height: 48}} 
-                     disabled={state.length <6?true: false}/> 
+                     disabled={state.length <6?false: true}/> 
                   </li>    
                
                </ul>

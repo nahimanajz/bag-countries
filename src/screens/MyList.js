@@ -29,7 +29,7 @@ export function MyList({countries,children, changeScreenTitle}){
                 <div className="grid-col-3 m-top-32">
                     {/* Map countries from api */}
                         {countries.map(({name,capital, currencies, flag, population})=>(
-                            <div className="grid-row-4" onClick={goToDetail}>
+                            <div className="grid-row-4" onClick={goToDetail} key={name}>
                                 
                                     <div className="flag"
                                         style={{backgroundImage:`url(${flag})`}}

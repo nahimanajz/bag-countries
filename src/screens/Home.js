@@ -3,7 +3,7 @@ import Signin  from './Signin';
 import { Signup } from "./Signup";
 
 
-export default function Home() {
+export default function Home(props) {
     const[showLogin, setShowLogin] = useState(false);
     const switchScreens = ()=> setShowLogin(!showLogin);
 
@@ -14,7 +14,7 @@ export default function Home() {
                 <div className={showLogin?'inactive':'active'} onClick={switchScreens}>Signup</div>
                 <div className={showLogin?'active':'inactive'} onClick={switchScreens}>Signin</div>
             </div>
-            {showLogin? <Signin />:<Signup /> }
+            {showLogin? <Signin showDashboard={props.setShowDashboard} userInfo={props.userInfo}/>:<Signup showDashboard={props.setShowDashboard} userInfo={props.userInfo}/> }
              
         </div>
         

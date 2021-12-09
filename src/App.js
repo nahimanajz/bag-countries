@@ -5,6 +5,7 @@ import { DesktopNav } from './components/DesktopNav'
 import SideMenus from './components/SideMenus'
 import { Routes, Route} from "react-router-dom";
 import { MyList } from './screens/MyList'
+import Home from './screens/Home'
 
 const axios = require('axios');
  
@@ -13,6 +14,8 @@ function App() {
   const [darkMode, setDarkMode] = useState(false)
   const[countries, setCountries] = useState([]);
   const[leftNavTitle, setNavTitle] = useState();
+  const[showDashboard, setShowDashboard] = useState(false);
+  const[userInfo, setUserInfo] = useState();
 
   const toggleMode =()=> setDarkMode(!darkMode)
 
@@ -32,8 +35,12 @@ function App() {
   useEffect(()=>{
     fetchData()
   }, [fetchData])
-    
-  console.log(`${JSON.stringify(countries)}`)
+ // console.log(`${JSON.stringify(countries)}`)
+  console.log(userInfo && userInfo)
+
+  if(!showDashboard){
+    return <Home setShowDashboard={setShowDashboard} userInfo={setUserInfo}/>
+  }
   return (
       <div className="app">
         <div className="sidebar">
@@ -44,6 +51,9 @@ function App() {
                       darkMode={darkMode} 
                       title={countries&&leftNavTitle}
                       changeScreenTitle={changeScreenTitle}
+                      userInfo={userInfo&& userInfo}
+                      signout={setUserInfo}
+                      showDashboard={setShowDashboard}
                       />          
              {/* <CountryDetail>
                 <MobileMenu toggleMode={toggleMode} darkMode={darkMode}/> 
