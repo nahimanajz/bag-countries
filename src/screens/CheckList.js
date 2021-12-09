@@ -1,24 +1,16 @@
-import { useEffect, useState } from "react";
+import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import { CountryFilter } from "../components/CountryFilter";
 import { ListableCountry } from "../components/ListableCountry";
-import { toLowerCase } from "../util";
+import { toLowerCase, BACKEND_API_ROUTE } from "../util";
 
-export function MyList({
-  countries,
-  children,
-  changeScreenTitle,
-  updateCountry,
-  deleteCountry,
-}) {
-  const navigate = useNavigate();
+export function CheckList({ countries, userInfo }) {
   const [myList, setMyList] = useState();
   const [regionCountries, setRegionCountries] = useState();
-  const [countryItem, setCountryItem] = useState();
-  const goToDetail = () => {
-    navigate("/detail", { country: "country object" }); //works
-    changeScreenTitle("Back");
-  };
+  const [chosenCountry, setChosenCountry] = useState();
+
   const addCountryToList = (e) => {
     const country = countries.filter(({ name }) =>
       toLowerCase(name).includes(toLowerCase(e.target.value))
@@ -33,22 +25,31 @@ export function MyList({
     setRegionCountries(country);
     setMyList(country);
   };
-  useEffect(() => {
-    setCountryItem(myList ? myList : regionCountries && regionCountries);
-  }, [myList, regionCountries]);
+  //Todo: addTo list in backend
+  const handleCheckList = async (name) => {
+   
+    const { data } = await axios.post(`${BACKEND_API_ROUTE}/add/country`, {
+      name,
+      user: userInfo._id,
+    });
+    if (data) {
+      toast(data.message);
+    } else {
+      toast("Something is wrong");
+    }
+  };
 
   return (
-    <div className="flex-col">
+    <>
+      <ToastContainer />
       <CountryFilter
         addCountryToList={addCountryToList}
         addCountryByRegion={addCountryByRegion}
       />
       <ListableCountry
-        countries={countryItem}
-        goToDetail={goToDetail}
-        updateCountry={updateCountry}
-        deleteCountry={deleteCountry}
+        add={handleCheckList}
+        countries={myList ? myList : regionCountries && regionCountries}
       />
-    </div>
+    </>
   );
 }
