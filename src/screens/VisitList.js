@@ -6,7 +6,7 @@ export default function VisitList({countries, goToDetail, updateCountry, deleteC
 
    return (
        <>
-   <ListableCountry
+      <ListableCountry
         countries={countries}
         goToDetail={goToDetail}
         updateCountry={updateCountry}

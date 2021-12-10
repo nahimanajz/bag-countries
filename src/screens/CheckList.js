@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { CountryFilter } from "../components/CountryFilter";
 import { ListableCountry } from "../components/ListableCountry";
 import { toLowerCase, BACKEND_API_ROUTE } from "../util";
 
-export function CheckList({ countries, userInfo }) {
+export function CheckList({ countries, userInfo, ...props }) {
   const [myList, setMyList] = useState();
   const [regionCountries, setRegionCountries] = useState();
   const [chosenCountry, setChosenCountry] = useState();
@@ -15,7 +14,7 @@ export function CheckList({ countries, userInfo }) {
     const country = countries.filter(({ name }) =>
       toLowerCase(name).includes(toLowerCase(e.target.value))
     );
-    setMyList(country);
+    setMyList(country); 
     setRegionCountries();
   };
   const addCountryByRegion = async (e) => {
@@ -47,6 +46,7 @@ export function CheckList({ countries, userInfo }) {
         addCountryByRegion={addCountryByRegion}
       />
       <ListableCountry
+        goToDetail={props.goToDetail}
         add={handleCheckList}
         countries={myList ? myList : regionCountries && regionCountries}
       />
