@@ -4,6 +4,8 @@ import { Add } from "../assets/Add";
 import { Bin } from "../assets/Bin";
 import { Check } from "../assets/Check";
 export function ListableCountry({countries, goToDetail,...props}){
+
+    
     
     return(
         <>
