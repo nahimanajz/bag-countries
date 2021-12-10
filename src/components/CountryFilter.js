@@ -5,7 +5,7 @@ export function CountryFilter(props){
     return(
         <div className="flex-wrap">
                     <div className="grid-col-2">
-                        <span> <SearchIcon /> </span>                      
+                        <span style={searchIcon}> <SearchIcon /> </span>                      
                       <input text="name" type="text"placeholder="Search for A Country" onChange={props.addCountryToList}/>
                     </div>
                     <div>
@@ -22,3 +22,5 @@ export function CountryFilter(props){
                 </div>
     )
 }
+
+const searchIcon ={alignSelf: 'center', width: '24px'}

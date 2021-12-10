@@ -12,11 +12,11 @@ export function ListableCountry({ countries, goToDetail, ...props }) {
             const { name, capital, currencies, flag, population } = country;
             return (
               <div className="grid-row-4" key={name}>
-                <div
-                  className="flag"
-                  onClick={() => goToDetail(country)}
-                  style={{ backgroundImage: `url(${flag})` }}
+                <img
+                  className="flag onlist"
+                  onClick={() => goToDetail(country)}                  
                   alt="flag"
+                  src={flag}
                 />
 
                 <ul className="subtitle2">

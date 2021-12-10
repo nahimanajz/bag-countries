@@ -56,13 +56,7 @@ function App() {
       setNavTitle("My List");
     }
   }, [countries, userInfo]);
-  /**
-   * @param {String} visited|to visit
-   * @return {Array} filtered countries
-   */
-  // const addToVisitList = (name) => {
-  //   countries.filter((country) => setVisitList.push(country));
-  // };
+
   const updateCountry = async (name) => {
     //TODO: update updated country
     const { data } = await axios.put(`${BACKEND_API_ROUTE}/update/country`, {
@@ -101,7 +95,6 @@ function App() {
     return <Home setShowDashboard={setShowDashboard} userInfo={setUserInfo} />;
   }
   const user = userInfo && userInfo;
-  // console.log(JSON.stringify(addedCountries));
   const darkModeStyle = darkMode
     ? { background: `rgb(32,33,36)`, color: "tomato" }
     : {};
@@ -119,9 +112,9 @@ function App() {
           signout={setUserInfo}
           showDashboard={setShowDashboard}
         />
-        {/* <CountryDetail>
+        <CountryDetail>
                 <MobileMenu toggleMode={toggleMode} darkMode={darkMode}/> 
-            </CountryDetail> */}
+            </CountryDetail>
         <Routes>
           <Route
             path="/my-list"

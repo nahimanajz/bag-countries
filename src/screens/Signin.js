@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useCallback, useState } from 'react'
 import {useNavigate } from "react-router-dom";
-import { Mail } from "../assets/Mail";
 import { BACKEND_API_ROUTE } from "../util";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

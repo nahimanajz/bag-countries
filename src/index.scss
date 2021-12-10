@@ -59,6 +59,8 @@ body {
 .iconGreen{color:$iconGreen;}
 .tomato{color: tomato;}
 .bg-glass{background:rgba(255,255,255,0.14)};
+// ul li{list-style-type:none;}
+.center{align-items: center}
 
 .icon{ height:32px; width:32px; border-radius: 50%; border:2px solid $dark;};
 
@@ -142,12 +144,7 @@ body {
     @include curve-8($px:8px);
     @include bgGrey();
   }
-  input{max-width: 450px; width: 300px; border:0.1px solid $green;}
-  select{width:200px;
-    option {
-      @include bgGrey();
-    }
-  }
+  select, input{max-width: 450px; width: 300px; border:0.1px solid $green;}
 .grid-col-2{
     @include grid($gtc:minmax(20px, auto) 1fr);
     @include bgGrey();
@@ -174,7 +171,7 @@ body {
   min-height: 220px;
   background-repeat: no-repeat;
   @include curve-8($px:12px);}
-
+  img.flag.onlist {width: 100% !important; margin:0;}
   /* registration form background */
   .cover{
     z-index: 1; // Put modal on top
@@ -220,7 +217,13 @@ body {
     font-weight: 500;
     font-style: bold;
   }
-
+input:hover, select:hover {
+  border: 2px solid #ccc;
+  box-shadow: 0 3px 3px green;
+}
+input[type=submit]:hover{
+  background: $tomato;
+}
 /** Responsiveness */
 @media only screen and (max-width: 600px) {
 	.grid-2{
@@ -232,4 +235,6 @@ body {
   .desktop-back{display:none;}
   .flex.mobile{ @include box;}
   .grid-col-3{@include grid($gtc:1fr);}
+  .grid-col-2{gap: 33px;}
+  select{margin-top: 32px;}
 }
