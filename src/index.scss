@@ -57,6 +57,7 @@ body {
 .p-h{padding: 0 16px;}
 .bottom-margin{margin-bottom: 32px;}
 .iconGreen{color:$iconGreen;}
+.tomato{color: tomato;}
 
 .icon{ height:32px; width:32px; border-radius: 50%; border:2px solid $dark;};
 
@@ -67,8 +68,10 @@ body {
 .sidebar{
   border-right: 2px solid $light;
   color: $darktext;
- 
 }
+.side-menu{  list-style-type: none;}
+.menu-item {  text-decoration: none; color: $darktext;}
+.menu-item:visited {  text-decoration: none;}
 /*  span country*/
 .neighbor{
   @include box; 

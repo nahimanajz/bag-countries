@@ -25,7 +25,15 @@ function App() {
   const [visited, setVisited] = useState([]);
   const [addedCountries, setAddedCountries] = useState([]);
 
-  const toggleMode = () => setDarkMode(!darkMode);
+  const toggleMode = () => {
+    setDarkMode(!darkMode);
+    let body= document.querySelector('#root')
+    if(darkMode){
+      body.style.background='#333';
+    }
+    body.style.background = 'white';
+
+  }
 
   const changeScreenTitle = useCallback((title) => setNavTitle(title), []);
   const fetchData = useCallback(async () => {
@@ -97,11 +105,12 @@ function App() {
   }
   const user = userInfo && userInfo;
   // console.log(JSON.stringify(addedCountries));
+  const darkModeStyle = darkMode? {background:`rgb(32,33,36)`, color:'tomato'}:{}
 
   return (
     <div className="app">
-      <SideMenus />
-      <main className="margin-32 ">
+      <SideMenus darkMode={darkMode} style={darkModeStyle}/>
+      <main className={"padding-32"} style={darkModeStyle}>
         <DesktopNav
           toggleMode={toggleMode}
           darkMode={darkMode}
@@ -160,3 +169,4 @@ function App() {
 }
 
 export default App;
+
