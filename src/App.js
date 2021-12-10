@@ -25,15 +25,8 @@ function App() {
   const [visited, setVisited] = useState([]);
   const [addedCountries, setAddedCountries] = useState([]);
 
-  const toggleMode = () => {
-    setDarkMode(!darkMode);
-    let body= document.querySelector('#root')
-    if(darkMode){
-      body.style.background='#333';
-    }
-    body.style.background = 'white';
-
-  }
+  const toggleMode = () => setDarkMode(!darkMode);
+    
 
   const changeScreenTitle = useCallback((title) => setNavTitle(title), []);
   const fetchData = useCallback(async () => {
@@ -138,6 +131,7 @@ function App() {
           <Route path="/detail" element={<CountryDetail />} />
           <Route
             path="/checkList"
+            params={'param detetected'}
             element={
               <CheckList                
                 countries={countries && countries}
