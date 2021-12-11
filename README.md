@@ -1,5 +1,5 @@
 # BAG Country visit
-Hi, I am Janvier, I worked I would like to show you off my project that   fetches data from __getcountriesapi__ then use those data to set visit places. you can find demo [here](https://bag-countries.vercel.app/)
+Hi, I am Janvier, I worked I would like to show you off my project that   fetches data from __getcountriesapi__ then use those data to set visit places. you can click on [demo](https://janvier-bag-countries.netlify.app/)
 
 ## List of screens
  - Signup
