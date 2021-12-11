@@ -25,8 +25,10 @@ return(
         <div className="info" key={name}>
             <div className="grid-2 margin-top-120">
                 <div className="w-100">
-                    <img className="flag"                 
+                    <img className="flag no-curve"                 
                     src={flag}
+                    cols={7}
+                    rows={10}
                     alt="flag" />  
                 </div>            
                        
@@ -34,14 +36,14 @@ return(
                 <div className="flex-col">
                 <div className="title-dark">{name}</div>
                 <div className="grid-2">
-                    <ul>
+                    <ul className="detail">
                         <li><b>Native Name:  </b> {nativeName}</li>
                         <li><b>Population:  </b> {population.toLocaleString()}</li>
                         <li><b>Region:  </b> {region}</li>
                         <li><b>Sub Region: </b>{subregion}</li>
                         <li><b>Capital: </b>{capital}</li>
                     </ul>
-                    <ul>
+                    <ul className="detail">
                          <li><b>Top Level Domain:</b> {topLevelDomain}</li>
                         <li><b>Currencies:</b> {currencies.map(currency => currency.name)}</li>
                         <li><b>Languages: </b> {languages && Object.values(languages).map(({name})=> <label key={name}> ,{name}  </label>)}</li> 

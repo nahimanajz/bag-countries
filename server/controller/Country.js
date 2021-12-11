@@ -30,6 +30,17 @@ class CountryController{
             
         }
     }
+    async deleteCountry(req, res){
+     
+        try {
+            const countries = await country.findOneAndDelete({name:req.body.name});
+            return res.send({status: 200, message:'Country removed from your list'})
+
+        } catch (error) {
+            return res.send({status: 500, message:error.message});
+            
+        }
+    }
     }
 const countryController = new CountryController();
 export default countryController;

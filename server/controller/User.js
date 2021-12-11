@@ -11,9 +11,9 @@ class UserController {
         name, email, password:bcrypt.hashSync(password, 10), phone, dob, country, creation: Date.now(), login:Date.now()
       });
       const newUser = await data.save();
-      return res.send({ newUser });
+      return res.send({ status:201,newUser });
     } catch (error) {
-      return res.send({ error });
+      return res.send({ status:500, error:error.message,data:req.body });
     }
   }
   async signin(req, res) {

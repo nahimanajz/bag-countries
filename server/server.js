@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 import route from './routes/index'
 import env from "dotenv";
@@ -15,6 +16,7 @@ mongoose.connect(DB_URL, {
 
 const app = express();
 const port = process.env.PORT || 9000;
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json({limit: '500mb'}))

@@ -1,12 +1,11 @@
 @import 'colors'; 
-// @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap');
 
 body {
   margin: 0;
   color:$darktext;
   font-size: 18px;
-  // font-family: 'Quicksand', sans-serif;
   font-family: 'Source Sans 3', sans-serif;
 
 }
@@ -62,8 +61,9 @@ body {
 .iconGreen{color:$iconGreen;}
 .tomato{color: tomato;}
 .bg-glass{background:rgba(255,255,255,0.14)};
- ul li{list-style-type:none;}
+ ul.detail li{list-style-type:none; margin-left:-36px;}
 .center{align-items: center}
+.flag.no-curve{ @include curve-8($px:1px);}
 
 .icon{ height:32px; width:32px; border-radius: 50%; border:2px solid $dark;};
 
@@ -75,9 +75,10 @@ body {
   border-right: 2px solid $light;
   color: $darktext;
 }
-.side-menu{  list-style-type: none;}
+.side-menu{  list-style-type: none; letter-spacing: 1.5px;}
 .menu-item {  text-decoration: none; color: $darktext;}
 .menu-item:visited {  text-decoration: none;}
+.menu-item:hover{ border-left: 4px solid $tomato;}
 /*  span country*/
 .neighbor{
   @include box; 
@@ -127,7 +128,7 @@ body {
 }
 
 .grid-2{
-  @include grid;
+  @include grid($gap:0px);
 }
 .container{
 @include flex($wrap: nowrap,$justify: flex-start);
@@ -241,5 +242,5 @@ input[type=submit]:hover{
   .grid-col-2{gap: 33px;}
   select{margin-top: 32px;}
 .model-header.mobile{display:block; width: 100%; display: flex; justify-content: space-between; box-shadow: 0 3px 3px #c4c2c1; padding:32px 64px;}
-
+ul.detail li{list-style-type:none; margin-left:0px;}
 }

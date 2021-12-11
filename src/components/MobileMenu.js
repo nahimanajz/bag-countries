@@ -8,7 +8,7 @@ export function MobileMenu({toggleMode, darkMode}){
         <div className="mobile">
             
             <div className="model-header mobile"> 
-                <span>Where in the world?</span>
+                <span className="title">Where in the world?</span>
                 
                 <span className="flex-wrap">
                     <span onClick={toggleMode} className="margin-right-32"> {!darkMode ?<Sun/>:<Moon /> }</span>
