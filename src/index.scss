@@ -1,10 +1,13 @@
 @import 'colors'; 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap');
+
 body {
   margin: 0;
   color:$darktext;
   font-size: 18px;
-  font-family: 'Quicksand', sans-serif;
+  // font-family: 'Quicksand', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
 
 }
 // mixins 
@@ -59,7 +62,7 @@ body {
 .iconGreen{color:$iconGreen;}
 .tomato{color: tomato;}
 .bg-glass{background:rgba(255,255,255,0.14)};
-// ul li{list-style-type:none;}
+ ul li{list-style-type:none;}
 .center{align-items: center}
 
 .icon{ height:32px; width:32px; border-radius: 50%; border:2px solid $dark;};
@@ -182,18 +185,17 @@ body {
     right:0;
     background: $bg-dark;
     display: grid;
-  
+  place-items: center;
     
   }
   /* user regstion form*/
   .modal{
     background: $white;
-    @include flex($justify: space-between, $direction: column, $wrap: wrap);
-    @include curve-8($px:8px);
+    @include flex($justify: flex-start, $direction: column, $wrap: wrap);
+    @include curve-8($px:24px);
     border:1px solid $green;
-    border-top-right-radius: 64px;
-    border-top-left-radius: 64px;
     background: rgba(255,255,255,0.14);
+    padding: 64px;
    
   }
   ul.modal > li{
@@ -224,6 +226,7 @@ input:hover, select:hover {
 input[type=submit]:hover{
   background: $tomato;
 }
+.model-header.mobile{display:none;}
 /** Responsiveness */
 @media only screen and (max-width: 600px) {
 	.grid-2{
@@ -237,4 +240,6 @@ input[type=submit]:hover{
   .grid-col-3{@include grid($gtc:1fr);}
   .grid-col-2{gap: 33px;}
   select{margin-top: 32px;}
+.model-header.mobile{display:block; width: 100%; display: flex; justify-content: space-between; box-shadow: 0 3px 3px #c4c2c1; padding:32px 64px;}
+
 }

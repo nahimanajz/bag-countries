@@ -8,7 +8,6 @@ import { toLowerCase, BACKEND_API_ROUTE } from "../util";
 export function CheckList({ countries, userInfo, ...props }) {
   const [myList, setMyList] = useState();
   const [regionCountries, setRegionCountries] = useState();
-  const [chosenCountry, setChosenCountry] = useState();
 
   const addCountryToList = (e) => {
     const country = countries.filter(({ name }) =>

@@ -3,7 +3,7 @@ export default function SideMenus({darkMode,style}) {
   const menuColor ={color:darkMode&&'tomato'}
 
     return (
-      <div className="sidebar" style={style}>
+      <div className="sidebar desktop" style={style}>
           <ul className="side-menu padding-32">      
               <li>
                   <Link to="/checkList" className="menu-item" style={menuColor}>CheckList</Link>

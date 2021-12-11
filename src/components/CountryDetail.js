@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export function CountryDetail({children, country, countries:allCountries}){
+export const CountryDetail =React.memo(function CountryDetail({children, country, countries:allCountries}){
     const {flag, name, nativeName,population, region, subregion, capital, currencies,
         languages, topLevelDomain, borders
        } = country;
@@ -14,7 +14,7 @@ export function CountryDetail({children, country, countries:allCountries}){
         )
     )   
         setNeighbors(co)
-      }, [neighbors]);
+      });
        
 return( 
     <div className="flex-col">
@@ -49,7 +49,7 @@ return(
                 <div className="container">
                 <span><b>Border countries:</b></span>
                 {
-                  neighbors.map(neighbor=> <span className="neighbor">{neighbor}</span>) 
+                  neighbors.map(neighbor=> <span className="neighbor" key={neighbor}>{neighbor}</span>) 
                }       
 
                 </div>
@@ -61,4 +61,4 @@ return(
     
 </div>
     )
-}
+})

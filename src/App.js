@@ -15,7 +15,7 @@ import { filterTOvisit } from "./util/filterToVisit";
 
 const axios = require("axios");
 
-function App() {
+const App = React.memo(function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [countries, setCountries] = useState([]);
   const [leftNavTitle, setNavTitle] = useState();
@@ -100,8 +100,11 @@ function App() {
     : {};
 
   return (
-    <div className="app">
-      <SideMenus darkMode={darkMode} style={darkModeStyle} />
+    <>
+    <MobileMenu toggleMode={toggleMode} darkMode={darkMode}/> 
+     <div className="app">
+
+      <SideMenus darkMode={darkMode} style={darkModeStyle} /> 
       <main className={"padding-32"} style={darkModeStyle}>
         <DesktopNav
           toggleMode={toggleMode}
@@ -112,9 +115,6 @@ function App() {
           signout={setUserInfo}
           showDashboard={setShowDashboard}
         />
-        <CountryDetail>
-                <MobileMenu toggleMode={toggleMode} darkMode={darkMode}/> 
-            </CountryDetail>
         <Routes>
           <Route
             path="/my-list"
@@ -175,7 +175,8 @@ function App() {
         </Routes>
       </main>
     </div>
+    </>
   );
-}
+})
 
 export default App;

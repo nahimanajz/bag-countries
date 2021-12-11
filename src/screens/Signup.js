@@ -51,7 +51,7 @@ export function Signup({children, showDashboard, userInfo}){
                   </li> 
                   <li>
                      <label>DOB</label>
-                     <input type="text" onChange={handleChange} placeholder="Date Of Birth" name="dob" required/>
+                     <input type="date" onChange={handleChange} placeholder="Date Of Birth" name="dob" required/>
                   </li> 
                  
                   <li>
