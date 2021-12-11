@@ -1,5 +1,5 @@
 # BAG trips challenge
-Hi, I am Janvier, I worked I would like to show you off my project that   fetches data from __getcountriesapi__ then use those data to set visit places. you can find demo [here]()
+Hi, I am Janvier, I worked I would like to show you off my project that   fetches data from __getcountriesapi__ then use those data to set visit places. you can find demo [here](https://bag-countries.vercel.app/)
 
 
 ## List of backend endpoints
@@ -30,11 +30,11 @@ Hi, I am Janvier, I worked I would like to show you off my project that   fetche
 - Check country as visited 
 ## Installation guide
 1. Clone this repository firstly then follow these instructions below 
-``
+```
 cd bag-countries/
 npm install
 open localhost:3000  
 npm  test 
 
-``
+```
 **THank you for reviewing this project**
