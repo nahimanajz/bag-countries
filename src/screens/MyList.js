@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 import { CountryFilter } from "../components/CountryFilter";
 import { ListableCountry } from "../components/ListableCountry";
 import { toLowerCase } from "../util";
+/**
+ * - Countries to Visit  
+ * @param {Function} changeScreenTitle to change screen to appropriat visited screen
+ * @param {Function} updateCountry  to updated selected country to visited list
+ * @param {Function} deleteCountry  to remove country from visit list
+ * @param {Array} countries fetched countries from App component to pass to Listable item
+ * @param {*} JSX tags to append on my list screen
+ */
 
 export function MyList({
   countries,

@@ -1,7 +1,13 @@
-# BAG trips challenge
+# BAG Country visit
 Hi, I am Janvier, I worked I would like to show you off my project that   fetches data from __getcountriesapi__ then use those data to set visit places. you can find demo [here]()
 
-
+## List of screens
+ - Signup
+ - Signin
+- My list
+- Visited
+- To visit
+- Country to visit
 ## List of backend endpoints
 | Route Name| Method | Endpoint | Description|
 | ------ | ------ |---|---|
@@ -22,19 +28,32 @@ Hi, I am Janvier, I worked I would like to show you off my project that   fetche
 - Netlify
 - Jest&Enzymes
 - Vscode
+- Postman
 
 ## features
 - Signin 
 - Add country
 - Delete country
 - Check country as visited 
-## Installation guide
-1. Clone this repository firstly then follow these instructions below 
-``
+## Installation guide and test with remote server
+1. Clone this repository firstly then follow these instructions below open localhost:3000  
+```
 cd bag-countries/
 npm install
-open localhost:3000  
+npm start
 npm  test 
+```
+## Running with local server
 
-``
-**THank you for reviewing this project**
+On the condition that you want to test react App with local server headover to `src/util/index.js`and change this line `export const BACKEND_API_ROUTE ='https://jz-bag.herokuapp.com/api/v1'` route to `export const BACKEND_API_ROUTE ='localhost:4010/api/v1'` then 
+in terminal run these commands
+```
+cd bag-countries/ && npm install
+cd server/ && npm install
+npm start 
+cd ..
+npm start
+npm  test 
+```
+**Thank you for reviewing this project**
+`Developed by Janvier`

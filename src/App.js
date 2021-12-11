@@ -18,7 +18,7 @@ const axios = require("axios");
 const App = React.memo(function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [countries, setCountries] = useState([]);
-  const [leftNavTitle, setNavTitle] = useState();
+  const [leftNavTitle, setNavTitle] = useState("My List");
   const [showDashboard, setShowDashboard] = useState(false);
   const [userInfo, setUserInfo] = useState();
   const [planning, setPlanning] = useState([]);
@@ -33,9 +33,7 @@ const App = React.memo(function App() {
   const fetchData = useCallback(async () => {
     const { data } = await axios.get(`https://restcountries.com/v2/all`);
     setCountries(Object.values(data));
-    setNavTitle("My List");
   }, []);
-
   const listAddedCountries = useCallback(async () => {
     const { data } = await axios.get(`${BACKEND_API_ROUTE}/countries`);
     if (data.status === 200) {
@@ -58,7 +56,6 @@ const App = React.memo(function App() {
   }, [countries, userInfo]);
 
   const updateCountry = async (name) => {
-    //TODO: update updated country
     const { data } = await axios.put(`${BACKEND_API_ROUTE}/update/country`, {
       name,
     });
@@ -70,7 +67,6 @@ const App = React.memo(function App() {
     }
   };
   const deleteCountry = async (name) => {
-    //TODO: Remove deleted country
     const { data } = await axios.put(`${BACKEND_API_ROUTE}/delete/country`, {
       name,
     });
@@ -134,6 +130,7 @@ const App = React.memo(function App() {
               <CountryDetail
                 country={chosenCountry && chosenCountry}
                 countries={countries && countries}
+                changeScreenTitle={changeScreenTitle}
               />
             }
           />

@@ -2,7 +2,11 @@ import { ArrowLeft } from "../assets/ArrowLeft";
 
 const { Moon } = require("../assets/Moon");
 const { Sun } = require("../assets/Sun");
-
+/**
+ * -Sidebar styles
+ * @param {Function} toggleMode to customize colors based on light mode or dark mode
+ * @param {Boolean}  darkMode colols of dark mode
+ */
 export function MobileMenu({toggleMode, darkMode}){
     return(
         <div className="mobile">

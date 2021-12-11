@@ -5,6 +5,12 @@ import { BACKEND_API_ROUTE } from "../util";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * - User signin 
+ * @param {Function} props.showDashboard to show main dashboard later on signin
+ * @param {Function} props.userInfo  setUser info so that can view relavant info on dashboard
+ */
+
 export default function Signin(props) {
 
    const[state, setState] = useState({email:'', password:''})

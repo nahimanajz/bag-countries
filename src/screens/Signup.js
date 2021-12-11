@@ -2,7 +2,14 @@ import { useCallback, useState } from 'react'
 import axios from 'axios'
 import { BACKEND_API_ROUTE } from '../util'
 import { toast, ToastContainer } from 'react-toastify';
-export function Signup({children, showDashboard, userInfo}){
+
+/**
+ * - User signin 
+ * @param {Function} props.showDashboard to show main dashboard later on sinup
+ * @param {Function} props.userInfo  setUser info so that can view relavant info on dashboard
+ */
+
+export function Signup({ showDashboard, userInfo}){
    const[state, setState] = useState({name:'', email:'', password:'',phone:'',dob:'',country:''})
    const handleChange = useCallback(
     (e) => {

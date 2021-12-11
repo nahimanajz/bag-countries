@@ -1,4 +1,9 @@
 import { Link } from "react-router-dom";
+/**
+ * -Sidebar menus
+ * @param {Boolean} darkMode to customize colors based on mode
+ * @param {Object}  style colols of dark mode
+ */
 export default function SideMenus({darkMode,style}) {
   const menuColor ={color:darkMode&&'tomato'}
 

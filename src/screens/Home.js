@@ -2,6 +2,10 @@ import { useState } from "react";
 import Signin  from './Signin';
 import { Signup } from "./Signup";
 
+/**
+ * Toggle Login and Signup screens
+ * @param {Function} props.setShowDashoard to show main dashboard later on logging in or successfull signup
+ */
 
 export default function Home(props) {
     const[showLogin, setShowLogin] = useState(false);

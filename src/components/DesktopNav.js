@@ -6,7 +6,13 @@ const { Bell } = require("../assets/Bell");
 const { ToggleLeft } = require("../assets/ToggleLeft");
 const { ToggleRight } = require("../assets/ToggleRight");
 
-
+/**
+ * Navigation for desktop 
+ * @param {bool} props.toggleMode toogle from light mode to dark mode and vice versa
+ * @param {String} title set title for nav bar once screen is changed
+ * @param {Object} userInfo it is destructured to show username of logged in user 
+ * @param {function} props.handleSignout to terminate user session
+ */
 export function DesktopNav({toggleMode, darkMode, title,changeScreenTitle, userInfo,...props}){
     const navigate = useNavigate()
     const goBack = useCallback(
@@ -33,7 +39,7 @@ export function DesktopNav({toggleMode, darkMode, title,changeScreenTitle, userI
         <div className="flex-end desktop">
           <div className="flex">
                <span> {darkMode?'Light Mode':'Dark Mode'}</span>                  
-                <button onClick={toggleMode} className="toggle"> {darkMode ?<ToggleRight />:<ToggleLeft /> }</button>
+                <span onClick={toggleMode} className="toggle"> {darkMode ?<ToggleRight />:<ToggleLeft /> }</span>
           <div className="circle"><Bell color={'#fff'} /> </div>
             <div><b className="text-light">hey</b>, {userInfo&&userInfo.name}</div>
           <div onClick={handleSignout}>

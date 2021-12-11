@@ -1,5 +1,10 @@
 
 import { SearchIcon } from "../assets/SearchIcon";
+/**
+ * -Filter countries to show on UI
+ * @param {Function} props.addCountryByRegion filter country based on continent to show  UI
+  * @param {Function} props.addCountryToList to filter country based on typed characters
+ */
 export function CountryFilter(props){
 
     return(

@@ -64,6 +64,7 @@ body {
  ul.detail li{list-style-type:none; margin-left:-36px;}
 .center{align-items: center}
 .flag.no-curve{ @include curve-8($px:1px);}
+.margin-top-64{margin-top: 64px;}
 
 .icon{ height:32px; width:32px; border-radius: 50%; border:2px solid $dark;};
 
@@ -119,6 +120,8 @@ body {
 .circle{
   @include span($br: 50%, $pd:4px);
   background:$light;
+  height: 24px;
+  width: 24px;
 
 }
 
@@ -175,7 +178,9 @@ body {
   min-height: 220px;
   background-repeat: no-repeat;
   @include curve-8($px:12px);}
+  .flag-on-detail{ width: 80%; height:280px;}
   img.flag.onlist {width: 100% !important; margin:0;}
+
   /* registration form background */
   .cover{
     z-index: 1; // Put modal on top
@@ -243,4 +248,5 @@ input[type=submit]:hover{
   select{margin-top: 32px;}
 .model-header.mobile{display:block; width: 100%; display: flex; justify-content: space-between; box-shadow: 0 3px 3px #c4c2c1; padding:32px 64px;}
 ul.detail li{list-style-type:none; margin-left:0px;}
+.flag-on-detail{width:auto; height:auto}
 }

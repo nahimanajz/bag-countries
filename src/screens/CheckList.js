@@ -5,6 +5,13 @@ import { CountryFilter } from "../components/CountryFilter";
 import { ListableCountry } from "../components/ListableCountry";
 import { toLowerCase, BACKEND_API_ROUTE } from "../util";
 
+/**
+ * Loop countries on user UI screens
+ * @param {Array} countries fetched countries from App component to pass to Listable item
+ * @param {Object} userInfo signed user
+ @return {Component, Component} Listable Country filter
+ */
+
 export function CheckList({ countries, userInfo, ...props }) {
   const [myList, setMyList] = useState();
   const [regionCountries, setRegionCountries] = useState();

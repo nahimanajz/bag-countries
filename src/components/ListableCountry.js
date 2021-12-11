@@ -2,6 +2,14 @@ import { ToastContainer } from "react-toastify";
 import { Add } from "../assets/Add";
 import { Bin } from "../assets/Bin";
 import { Check } from "../assets/Check";
+/**
+ * Loop countries on user UI screens
+ * @param {Array} countries fetched countries from api to loop on UI
+ * @param {Function} goToDetail used to navigate to chosen country detail
+ * @param {Function} props.deleteCountry to remove country from visit list
+ * @param {Function} props.update to update country as visited 
+ * @param {Function} props.add to add country to visit list
+ */
 export function ListableCountry({ countries, goToDetail, ...props }) {
   return (
     <>
