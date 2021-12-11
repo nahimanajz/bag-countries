@@ -14,7 +14,7 @@ export const CountryDetail =React.memo(function CountryDetail({children, country
         )
     )   
         setNeighbors(co)
-      });
+      }, [allCountries, borders, neighbors]);
        
 return( 
     <div className="flex-col">
