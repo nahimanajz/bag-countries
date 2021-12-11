@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { CountryFilter } from "../components/CountryFilter";
 import { ListableCountry } from "../components/ListableCountry";
 import { toLowerCase } from "../util";
@@ -10,15 +9,12 @@ export function MyList({
   changeScreenTitle,
   updateCountry,
   deleteCountry,
+  ...props
 }) {
-  const navigate = useNavigate();
   const [myList, setMyList] = useState();
   const [regionCountries, setRegionCountries] = useState();
   const [countryItem, setCountryItem] = useState();
-  const goToDetail = () => {
-    navigate("/detail", { country: "country object" }); //works
-    changeScreenTitle("Back");
-  };
+  
   const addCountryToList = (e) => {
     const country = countries.filter(({ name }) =>
       toLowerCase(name).includes(toLowerCase(e.target.value))
@@ -45,7 +41,7 @@ export function MyList({
       />
       <ListableCountry
         countries={countryItem}
-        goToDetail={goToDetail}
+        goToDetail={props.goToDetail}
         updateCountry={updateCountry}
         deleteCountry={deleteCountry}
       />

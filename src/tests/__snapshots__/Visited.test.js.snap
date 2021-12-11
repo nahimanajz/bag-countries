@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` should render visited component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`ComponentName should render visited component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`render dashboard screens should render My list  component without error 1`] = `
+Array [
+  <div
+    className="flex-col"
+  >
+    <CountryFilter
+      addCountryByRegion={[Function]}
+      addCountryToList={[Function]}
+    />
+    <ListableCountry />
+  </div>,
+]
+`;
+
+exports[`render dashboard screens should render check list   without error 1`] = `
+Array [
+  <React.Fragment>
+    <ToastContainer
+      autoClose={5000}
+      closeButton={[Function]}
+      closeOnClick={true}
+      draggable={true}
+      draggableDirection="x"
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      role="alert"
+      rtl={false}
+      theme="light"
+      transition={[Function]}
+    />
+    <CountryFilter
+      addCountryByRegion={[Function]}
+      addCountryToList={[Function]}
+    />
+    <ListableCountry
+      add={[Function]}
+    />
+  </React.Fragment>,
+]
+`;
+
+exports[`render dashboard screens should render visit list  component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`render dashboard screens should render visited component without error 1`] = `
+Array [
+  <ListableCountry
+    checked={true}
+  />,
+]
+`;
+
+exports[`render screens should render My list  component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`render screens should render check list   component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ToastContainer
+      autoClose={5000}
+      closeButton={[Function]}
+      closeOnClick={true}
+      draggable={true}
+      draggableDirection="x"
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      role="alert"
+      rtl={false}
+      theme="light"
+      transition={[Function]}
+    />
+    <CountryFilter
+      addCountryByRegion={[Function]}
+      addCountryToList={[Function]}
+    />
+    <ListableCountry
+      add={[Function]}
+    />
+  </React.Fragment>,
+]
+`;
+
+exports[`render screens should render check list   without error 1`] = `
+Array [
+  <React.Fragment>
+    <ToastContainer
+      autoClose={5000}
+      closeButton={[Function]}
+      closeOnClick={true}
+      draggable={true}
+      draggableDirection="x"
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      role="alert"
+      rtl={false}
+      theme="light"
+      transition={[Function]}
+    />
+    <CountryFilter
+      addCountryByRegion={[Function]}
+      addCountryToList={[Function]}
+    />
+    <ListableCountry
+      add={[Function]}
+    />
+  </React.Fragment>,
+]
+`;
+
+exports[`render screens should render viited component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`render screens should render visit component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`render screens should render visit list  component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`render screens should render visited component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`render screens should render visited component without error 2`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;
+
+exports[`render screens should render visited component without error 3`] = `
+Array [
+  <React.Fragment>
+    <ListableCountry />
+  </React.Fragment>,
+]
+`;

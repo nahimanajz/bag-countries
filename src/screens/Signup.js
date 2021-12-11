@@ -3,7 +3,6 @@ import axios from 'axios'
 import { BACKEND_API_ROUTE } from '../util'
 import { toast, ToastContainer } from 'react-toastify';
 export function Signup({children, showDashboard, userInfo}){
-   //TODO: SIGNUP THEN LOGIN IMMEDIATELY
    const[state, setState] = useState({name:'', email:'', password:'',phone:'',dob:'',country:''})
    const handleChange = useCallback(
     (e) => {
@@ -16,7 +15,7 @@ export function Signup({children, showDashboard, userInfo}){
    const{ data}  = await axios.post(`${BACKEND_API_ROUTE}/signup`,{name, email, password,phone,dob,country})
   
 
-    if(data.error){  //check if registration is ok
+    if(data.error){ 
        toast('Please correct your data');
 
     }else{
@@ -52,7 +51,7 @@ export function Signup({children, showDashboard, userInfo}){
                   </li> 
                   <li>
                      <label>DOB</label>
-                     <input type="text" onChange={handleChange} placeholder="Date Of Birth" name="dob" required/>
+                     <input type="date" onChange={handleChange} placeholder="Date Of Birth" name="dob" required/>
                   </li> 
                  
                   <li>

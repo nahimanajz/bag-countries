@@ -1,36 +1,57 @@
-export function CountryDetail({children}){
-    
-    return(
+import React, { useEffect, useState } from "react";
+
+export const CountryDetail =React.memo(function CountryDetail({children, country, countries:allCountries}){
+    const {flag, name, nativeName,population, region, subregion, capital, currencies,
+        languages, topLevelDomain, borders
+       } = country;
+       const [neighbors, setNeighbors]= useState([]);
+       useEffect(() => {  
+           const co= []           
+        Object.values(allCountries).map(({name, cioc, cca})=>                  
+        borders && borders.find(border =>border === cioc?   
+           co.push(name)             
+        :''
+        )
+    )   
+        setNeighbors(co)
+      }, [allCountries, borders, neighbors]);
+       
+return( 
     <div className="flex-col">
         <div className ="mobile-menu">
              {children} 
         </div>
         
-        <div className="info">
+        <div className="info" key={name}>
             <div className="grid-2 margin-top-120">
-                <div>            
-                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png" alt="Country flag"></img>
-                </div>
+                <div className="w-100">
+                    <img className="flag"                 
+                    src={flag}
+                    alt="flag" />  
+                </div>            
+                       
+               
                 <div className="flex-col">
-                <div className="title-dark">Belgium</div>
+                <div className="title-dark">{name}</div>
                 <div className="grid-2">
                     <ul>
-                    <li><b>Native Name:  </b> Belgie</li>
-                        <li><b>Population:  </b> 111.897.123</li>
-                        <li><b>Region:  </b> Europe</li>
-                        <li><b>Sub Region: </b>Western Europe</li>
-                        <li><b>Capital: </b>Brussels</li>
+                        <li><b>Native Name:  </b> {nativeName}</li>
+                        <li><b>Population:  </b> {population.toLocaleString()}</li>
+                        <li><b>Region:  </b> {region}</li>
+                        <li><b>Sub Region: </b>{subregion}</li>
+                        <li><b>Capital: </b>{capital}</li>
                     </ul>
                     <ul>
-                    <li><b>Top Level Domain:</b> .be</li>
-                        <li><b>Currencies:</b> 111.897.123</li>
-                        <li><b>Languages</b> Ducth, french, German</li> {/** TODO: map list of languages */}
-                    </ul>
-                </div>
+                         <li><b>Top Level Domain:</b> {topLevelDomain}</li>
+                        <li><b>Currencies:</b> {currencies.map(currency => currency.name)}</li>
+                        <li><b>Languages: </b> {languages && Object.values(languages).map(({name})=> <label key={name}> ,{name}  </label>)}</li> 
+                </ul>
                 <div className="container">
-                    <span><b>Border countries:</b></span>
-                    <span className="neighbor">France</span> 
-                    <span className="neighbor">Germany</span> <span className="neighbor">Netherlands</span>
+                <span><b>Border countries:</b></span>
+                {
+                  neighbors.map(neighbor=> <span className="neighbor" key={neighbor}>{neighbor}</span>) 
+               }       
+
                 </div>
                 </div>
                 
@@ -38,6 +59,6 @@ export function CountryDetail({children}){
         </div>
     </div>
     
-
+</div>
     )
-}
+})

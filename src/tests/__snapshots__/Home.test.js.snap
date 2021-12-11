@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render dashboard screens should render Signup component without error 1`] = `
+Array [
+  <React.Fragment>
+    <ToastContainer
+      autoClose={5000}
+      closeButton={[Function]}
+      closeOnClick={true}
+      draggable={true}
+      draggableDirection="x"
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      role="alert"
+      rtl={false}
+      theme="light"
+      transition={[Function]}
+    />
+    <form
+      method="post"
+    >
+      <ul
+        className="modal"
+      >
+        <li>
+          <label>
+            Full Names
+          </label>
+          <input
+            name="name"
+            onChange={[Function]}
+            placeholder="Full Names"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <label>
+            Email
+          </label>
+          <input
+            name="email"
+            onChange={[Function]}
+            placeholder="Email"
+            required={true}
+            type="email"
+          />
+        </li>
+        <li>
+          <label>
+            Password
+          </label>
+          <input
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            required={true}
+            type="password"
+          />
+        </li>
+        <li>
+          <label>
+            Phone
+          </label>
+          <input
+            name="phone"
+            onChange={[Function]}
+            placeholder="Phone"
+            required={true}
+            type="tel"
+          />
+        </li>
+        <li>
+          <label>
+            DOB
+          </label>
+          <input
+            name="dob"
+            onChange={[Function]}
+            placeholder="Date Of Birth"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <label>
+            Country
+          </label>
+          <input
+            name="country"
+            onChange={[Function]}
+            placeholder="Country"
+            required={true}
+            type="text"
+          />
+        </li>
+        <li>
+          <input
+            className="btn"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "height": 48,
+              }
+            }
+            type="button"
+            value="Signup"
+          />
+        </li>
+      </ul>
+    </form>
+  </React.Fragment>,
+]
+`;
+
+exports[`render dashboard screens should render home component without error 1`] = `
+Array [
+  <React.Fragment>
+    <div
+      className="cover"
+    >
+      <div
+        className="model-header"
+      >
+        <div
+          className="active"
+          onClick={[Function]}
+        >
+          Signup
+        </div>
+        <div
+          className="inactive"
+          onClick={[Function]}
+        >
+          Signin
+        </div>
+      </div>
+      <Signup />
+    </div>
+  </React.Fragment>,
+]
+`;
+
+exports[`render dashboard screens should render visit list  component without error 1`] = `
+Array [
+  <React.Fragment>
+    <div
+      className="cover"
+    >
+      <div
+        className="model-header"
+      >
+        <div
+          className="active"
+          onClick={[Function]}
+        >
+          Signup
+        </div>
+        <div
+          className="inactive"
+          onClick={[Function]}
+        >
+          Signin
+        </div>
+      </div>
+      <Signup />
+    </div>
+  </React.Fragment>,
+]
+`;
