@@ -1,5 +1,5 @@
 export const URL_INDEX =() =>'https://restcountries.com/v3.1/name/{name}?fullText=true'
-export const BACKEND_API_ROUTE ='http://jz-bag.herokuapp.com/api/v1'
+export const BACKEND_API_ROUTE ='https://jz-bag.herokuapp.com/api/v1'
 
 /** @param { String }  input from user
  * @return { String } lower cased string
